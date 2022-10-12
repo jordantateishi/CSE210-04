@@ -42,7 +42,6 @@ def main():
     
     # create the robot
     x = int(MAX_X / 2)
-    #y = int(MAX_Y / 2)
     position = Point(x, MAX_Y - CELL_SIZE)
 
     robot = Actor()
@@ -53,13 +52,9 @@ def main():
     cast.add_actor("robots", robot)
     
     # create the artifacts
-    """with open(DATA_PATH) as file:
-        data = file.read()
-        messages = data.splitlines()"""
 
     for n in range(DEFAULT_ARTIFACTS):
         text = random.choice(['*', 'O'])
-        #message = messages[n]
 
         x = random.randint(1, COLS - 1)
         y = random.randint(1, ROWS - 1)
@@ -77,7 +72,6 @@ def main():
         artifact.set_color(color)
         artifact.set_position(position)
         artifact.set_velocity(Point(0, 1))
-        #artifact.set_message(message)
         cast.add_actor("artifacts", artifact)
     
     # start the game
