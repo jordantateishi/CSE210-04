@@ -4,14 +4,17 @@ from game.casting.actor import Actor
 
 class Artifact(Actor):
 
-    def set_text(self, text):
-        return super().set_text(text)
-    def set_font_size(self, font_size):
-        return super().set_font_size(font_size)
-    def set_color(self, color):
-        return super().set_color(color)
-    def set_position(self, position):
-        return super().set_position(position)
-    def set_message(self):
-        message = "messages.txt"
-        return message
+    def __init__(self):
+        super().__init__()
+        self._message = ""
+        self._points = 0
+    
+    def get_points(self):
+        if (self.get_text() == '*'):
+            self._points = 1
+        else:
+            self._points = -1
+        
+        return self._points
+
+    
